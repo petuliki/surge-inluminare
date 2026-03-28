@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.wax-seal-shadow {
+  box-shadow: inset 0px 2px 4px rgba(0,0,0,0.2), 0px 4px 12px rgba(130, 0, 18, 0.15);
+}
+
+/* Seal states */
+.pulse-ring {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-ring-fast {
+  animation: pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.pulse-ring-glow {
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.1; transform: scale(1.1); }
+}
+@keyframes glow {
+  from { opacity: 0.2; transform: scale(1); }
+  to   { opacity: 0.6; transform: scale(1.06); }
+}
+
+body {
+  min-height: max(884px, 100dvh);
+}

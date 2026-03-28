@@ -1,0 +1,180 @@
+<!DOCTYPE html><html class="light" lang="de"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#1d1b1a",
+              "secondary": "#615e5c",
+              "outline-variant": "#e2bebc",
+              "primary": "#820012",
+              "on-primary-container": "#ffb9b4",
+              "secondary-fixed-dim": "#cac5c4",
+              "on-surface": "#1b1c19",
+              "tertiary-fixed": "#fdddb9",
+              "inverse-primary": "#ffb3ae",
+              "on-tertiary-fixed": "#281803",
+              "surface-container-high": "#eae8e3",
+              "on-tertiary-fixed-variant": "#584329",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#910817",
+              "on-primary-fixed": "#410004",
+              "surface-container-low": "#f5f3ee",
+              "error": "#ba1a1a",
+              "secondary-container": "#e7e1df",
+              "on-secondary-fixed-variant": "#494645",
+              "tertiary-fixed-dim": "#e0c29f",
+              "surface-dim": "#dbdad5",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#b3272c",
+              "primary-fixed": "#ffdad7",
+              "on-tertiary-container": "#e4c5a2",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#675136",
+              "surface-variant": "#e4e2dd",
+              "on-background": "#1b1c19",
+              "inverse-surface": "#30312e",
+              "surface-container-highest": "#e4e2dd",
+              "surface-container": "#f0eee9",
+              "surface": "#fbf9f4",
+              "tertiary": "#4e3a21",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#5a413f",
+              "outline": "#8d706e",
+              "on-secondary-container": "#676462",
+              "background": "#fbf9f4",
+              "primary-container": "#a61d24",
+              "primary-fixed-dim": "#ffb3ae",
+              "surface-bright": "#fbf9f4",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f2f1ec",
+              "secondary-fixed": "#e7e1df"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Work Sans"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .wax-seal-shadow {
+            box-shadow: inset 0px 2px 4px rgba(0,0,0,0.2), 0px 4px 12px rgba(130, 0, 18, 0.15);
+        }
+        .pulse-ring {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.1; transform: scale(1.1); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-6 bg-surface z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px;">menu_book</span>
+<h1 class="font-headline tracking-tight text-3xl font-bold" style="">secretum agentis</h1>
+</div>
+<div class="style_brand_logo font-headline italic uppercase tracking-widest text-primary text-xs" style="">
+            surge inluminare
+        </div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-8 relative overflow-hidden">
+<!-- Background Texture Decor -->
+<div class="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]"></div>
+<!-- Central Agent Identity Section -->
+<div class="relative mb-12">
+<!-- Pulse Animation for Connected State -->
+<div class="absolute inset-0 rounded-full border-2 border-primary pulse-ring"></div>
+<div class="absolute -inset-4 rounded-full border border-primary/20 pulse-ring" style="animation-delay: 1.5s;"></div>
+<!-- The Seal (Logo Container) -->
+<div class="relative w-48 h-48 bg-surface-container-lowest rounded-full flex items-center justify-center wax-seal-shadow overflow-hidden border-4 border-surface-container-high">
+<img alt="Heraldic emblem logo for Secretum Agentis" class="w-32 h-32 object-contain" data-alt="Heraldic emblem logo for Secretum Agentis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWRvOJPVR6f2AAhBcbST449Rxf2dJ8boyVDpGixzMpUMykEXTkfHpaxOm1ZZAwG1AzGm3IHjtyo2e_6Mbte5BMDQ-GKRQSpATn4JHh5rAPlFksMDaeV7NoVeF-pdSiVQFiMzIYaNphiSKl3e_PIl0O2i0_1JBeXHJNpScQ7XS7w4aTjko9-qH0-lR2Hm-Wh7Z76I7cgN-6OHbrJmdARI66EBcKijexxD-lIdxzcu2qLsVHPeikbSGahEzb0uq1Ja-VRwUD2_Y7PNU" style="">
+</div>
+</div>
+<!-- Status & Identity Labels -->
+<div class="text-center mb-10">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary mb-2 block" style="">Status: vivere</span>
+<h2 class="font-headline text-4xl italic text-on-surface" style="">Magister Valesius</h2>
+</div>
+<!-- Call Actions -->
+<div class="w-full space-y-4 max-w-xs mb-12">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-label text-sm font-bold tracking-[0.15em] uppercase shadow-lg active:scale-95 transition-transform" style="">
+                inchoate
+            </button>
+<button class="w-full py-5 bg-surface-container-high text-on-surface font-label text-sm font-bold tracking-[0.15em] uppercase active:scale-95 transition-transform" style="">finisci</button>
+</div>
+<!-- Agent Selectors -->
+<div class="w-full max-w-xs space-y-6">
+<div class="relative group">
+<label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1" style="">AGENTIS</label>
+<div class="flex items-center justify-between border-b border-outline-variant/30 py-2 group-focus-within:border-primary transition-colors">
+<span class="font-headline text-lg italic" style="">Imperial Advisor</span>
+<span class="material-symbols-outlined text-tertiary" style="">expand_more</span>
+</div>
+</div>
+<div class="relative group">
+<label class="block font-label text-[10px] uppercase tracking-widest text-secondary mb-1" style="">VOX</label>
+<div class="flex items-center justify-between border-b border-outline-variant/30 py-2 group-focus-within:border-primary transition-colors">
+<span class="font-headline text-lg italic" style="">Bariton Profundus</span>
+<span class="material-symbols-outlined text-tertiary" style="">expand_more</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action & Navigation Shell -->
+<footer class="bg-surface-container-low px-8 pt-8 pb-12">
+<div class="flex flex-col gap-6 max-w-xs mx-auto">
+<!-- Contextual Primary Action -->
+<button class="w-full py-4 border-2 border-primary text-primary font-label text-xs font-bold tracking-[0.2em] uppercase hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-3" style="">
+<span class="material-symbols-outlined" style="font-size: 18px;">record_voice_over</span>
+                VOX FURANTUR</button>
+<!-- Secondary Navigation Text Action -->
+<button class="flex items-center justify-center gap-2 text-secondary hover:text-primary transition-colors py-2" style="">
+<span class="material-symbols-outlined" style="font-size: 20px;">psychology</span>
+<span class="font-label text-xs uppercase tracking-widest font-semibold" style="">Cerebrum</span>
+</button>
+</div>
+</footer>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-surface shadow-[0px_-4px_20px_rgba(27,28,25,0.06)] border-none">
+<div class="flex flex-col items-center justify-center text-primary border-t-2 border-primary pt-2 active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="mic_none" style="">mic_none</span>
+<span class="font-['Work_Sans'] text-[11px] uppercase tracking-wider font-semibold" style="">Curator</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#4e3a21] opacity-60 pt-2 hover:opacity-100 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="">auto_stories</span>
+<span class="font-['Work_Sans'] text-[11px] uppercase tracking-wider font-semibold" style="">Archives</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#4e3a21] opacity-60 pt-2 hover:opacity-100 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="psychology" style="">psychology</span>
+<span class="font-['Work_Sans'] text-[11px] uppercase tracking-wider font-semibold" style="">Cerebrum</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#4e3a21] opacity-60 pt-2 hover:opacity-100 transition-opacity active:scale-95 duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings" style="">settings</span>
+<span class="font-['Work_Sans'] text-[11px] uppercase tracking-wider font-semibold" style="">Settings</span>
+</div>
+</nav>
+</body></html>
