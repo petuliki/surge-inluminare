@@ -8,12 +8,17 @@
 # =============================================================
 set -e
 
+# Projektverzeichnis sofort bestimmen (bevor cd passiert)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
+
 WORKSPACE="/workspace"
 APP_DIR="/app"
 SERVICES_DIR="/services"
 
 echo "=========================================="
 echo "  Surge Inluminare - RunPod Setup"
+echo "  Projekt: ${PROJECT_DIR}"
 echo "=========================================="
 echo ""
 
@@ -41,21 +46,21 @@ fi
 # ----------------------------------------------------------
 echo ""
 echo "[2/7] Installiere vLLM..."
-pip install --no-cache-dir vllm 2>&1 | tail -1
+pip install --no-cache-dir vllm
 
 # ----------------------------------------------------------
 # 3. Pipecat installieren
 # ----------------------------------------------------------
 echo ""
 echo "[3/7] Installiere Pipecat..."
-pip install --no-cache-dir "pipecat-ai[silero,websocket]" 2>&1 | tail -1
+pip install --no-cache-dir "pipecat-ai[silero,websocket]"
 
 # ----------------------------------------------------------
 # 4. STT (faster-whisper) installieren
 # ----------------------------------------------------------
 echo ""
 echo "[4/7] Installiere faster-whisper..."
-pip install --no-cache-dir faster-whisper==1.0.3 2>&1 | tail -1
+pip install --no-cache-dir faster-whisper==1.0.3
 
 # ----------------------------------------------------------
 # 5. TTS (CosyVoice 2) installieren
@@ -66,8 +71,14 @@ COSYVOICE_PATH="/opt/cosyvoice"
 if [ ! -d "${COSYVOICE_PATH}" ]; then
     git clone https://github.com/FunAudioLLM/CosyVoice.git "${COSYVOICE_PATH}"
     cd "${COSYVOICE_PATH}"
-    pip install --no-cache-dir -r requirements.txt 2>&1 | tail -1
-    cd /
+    # CosyVoice requirements koennen Konflikte haben, daher einzeln
+    pip install --no-cache-dir conformer onnxruntime-gpu hyperpyyaml || true
+    pip install --no-cache-dir -r requirements.txt || {
+        echo "  WARNUNG: Einige CosyVoice Dependencies fehlgeschlagen."
+        echo "  Core-Dependencies werden separat installiert..."
+        pip install --no-cache-dir torch torchaudio || true
+    }
+    cd "${PROJECT_DIR}"
 else
     echo "  CosyVoice bereits vorhanden, ueberspringe."
 fi
@@ -77,10 +88,6 @@ fi
 # ----------------------------------------------------------
 echo ""
 echo "[6/7] Installiere App-Dependencies..."
-
-# Finde das Projektverzeichnis (wo dieses Script liegt)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_DIR="$(dirname "${SCRIPT_DIR}")"
 
 pip install --no-cache-dir \
     fastapi==0.115.0 \
@@ -92,8 +99,7 @@ pip install --no-cache-dir \
     soundfile==0.12.1 \
     "numpy>=1.26,<2.0" \
     huggingface_hub \
-    jupyterlab==4.2.5 \
-    2>&1 | tail -1
+    jupyterlab==4.2.5
 
 # ----------------------------------------------------------
 # 7. App-Code und Frontend deployen
@@ -125,7 +131,7 @@ echo "  Baue Frontend..."
 cd "${APP_DIR}/frontend"
 npm ci --silent
 npm run build
-cd /
+cd "${PROJECT_DIR}"
 
 # Workspace initialisieren
 bash /scripts/init_workspace.sh

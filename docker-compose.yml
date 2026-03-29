@@ -14,10 +14,9 @@ services:
       - ./workspace_template:/workspace
     environment:
       - WORKSPACE_DIR=/workspace
-      - VLLM_MODEL=mlabonne/Qwen3-14B-abliterated
-      - VLLM_QUANTIZATION=awq_marlin
-      - VLLM_GPU_MEMORY_UTILIZATION=0.50
-      - VLLM_MAX_MODEL_LEN=4096
+      - VLLM_MODEL=Qwen/Qwen2.5-14B-Instruct-AWQ
+      - VLLM_GPU_MEMORY_UTILIZATION=0.60
+      - VLLM_MAX_MODEL_LEN=2048
       - STT_MODEL=large-v3-turbo
       - STT_LANGUAGE=de
       - TTS_MODEL_DIR=/workspace/models/cosyvoice
