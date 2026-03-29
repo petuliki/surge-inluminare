@@ -31,8 +31,11 @@ export COSYVOICE_PATH="${COSYVOICE_PATH:-/opt/cosyvoice}"
 if command -v service &> /dev/null; then
     service nginx stop 2>/dev/null || true
 fi
-# Kill any process on port 8888 (e.g. RunPod's default JupyterLab)
-fuser -k 8888/tcp 2>/dev/null || true
+# Kill any process on ports 8888 and 8001
+for PORT in 8888 8001; do
+    PID=$(lsof -ti :${PORT} 2>/dev/null) && kill -9 ${PID} 2>/dev/null || true
+done
+sleep 1
 
 echo ""
 echo "Service configuration:"

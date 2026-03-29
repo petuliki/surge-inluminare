@@ -60,7 +60,7 @@ pip install --no-cache-dir "pipecat-ai[silero,websocket]"
 # ----------------------------------------------------------
 echo ""
 echo "[4/7] Installiere faster-whisper..."
-pip install --no-cache-dir faster-whisper==1.0.3
+pip install --no-cache-dir "faster-whisper>=1.1.0"
 
 # ----------------------------------------------------------
 # 5. TTS (CosyVoice 2) installieren
